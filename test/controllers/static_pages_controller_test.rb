@@ -25,7 +25,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get customer_care" do
-    get customer_care_path
+    get customercare_path
     assert_response :success
     assert_select "title", "Customer Care|#{@base_title}"
   end
