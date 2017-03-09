@@ -3,9 +3,20 @@
 
     <%= link_to image_tag('#', alt:"tetris", id: "header_logo"), root_path %>
 
-    <div class="nav">
+    <div class="nav cf">
       <ul>
-        <li><%=link_to "sign up", '#' %></li>
+        <% if user_signed_in?%>
+          <li class="drop_down">
+            <%=current_user.first_name[0..3] + "." +current_user.last_name[0].upcase%>
+
+            <ul class="sub-menu">
+              <li><%=link_to "Account", '#'%></li>
+              <li><%=link_to "Sign out", destroy_user_session_path,:method => :delete%></li>
+            </ul>
+          </li>
+        <%else%>
+        <li><%=link_to "sign in", new_user_session_path %></li>
+        <%end%>
         <li><%=link_to "customer care", customercare_path%></li>
         <li><%=link_to "store", store_path%></li>
         <li><%=link_to "home", root_path%></li>
