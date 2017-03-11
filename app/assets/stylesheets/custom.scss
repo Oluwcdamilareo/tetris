@@ -2,6 +2,7 @@ $white_text_color: #ffffff;
 $alcu: Alcubierre;
 $dark-brown: rgba(45, 41, 40, 0.5);
 $dark-brown2: #2d2122;
+$dark-brown3: rgba(45, 41, 40, 0.9);
 $color: #2d2928;
 $dark-grey:rgba(100,100,100,.8);
 
@@ -67,6 +68,7 @@ header{
     li.drop_down{
       color: white;
       transition: .2s;
+      cursor: pointer;
       &:hover{
         color: $dark-brown;
         transition: .6s;
@@ -85,19 +87,21 @@ header{
 
       ul.sub-menu{
         border: 1px solid $dark-brown2;
-        height: 220px;
-        padding: 30px 3px;
-        background-color: $dark-brown;
+        height: 250px;
+        padding: 10px 0px;
+        background-color: $dark-brown3;
         font-size: 1.1em;
         position: absolute;
         display: none;
         z-index: 2;
-        width: 170px;
-        right: 20px;
+        width: 210px;
+        text-align: center;
+        right: 10px;
         top:80px;
 
         li{
           float: none;
+          margin-right: 5px;
         }
       }
     }
@@ -473,6 +477,74 @@ footer{
     }
     p{
       margin: 20px 0px;
+    }
+  }
+}
+
+#product_holder{
+  width:100%;
+  height: 600px;
+  clear: both;
+  padding: 100px 0px;
+
+  .product{
+      width: 300px;
+      height: 300px;
+      float: left;
+      margin: 30px 0 0 130px;
+      margin-bottom: 30px;
+      text-align: center;
+      background-color: white;
+  }
+}
+
+#new_product_form{
+
+  clear: both;
+  height: 400px;
+  width: 975px;
+  margin: auto;
+  margin-top: 200px;
+  padding-left: 200px;
+  ul{
+    li{
+      list-style-type: none;
+      input{
+        font-size: 20px;
+        width: 500px;
+      }
+
+      input[type='text'],input[type='number']{
+        margin-top: 20px;
+        height: 50px;
+        padding: 10px 10px;
+      }
+
+      input[type="submit"]{
+        padding: 60px 0px;
+      }
+    }
+  }
+}
+
+#shopping_cart_holder{
+  width: 100%;
+  padding: 200px 0px;
+  text-align: center;
+
+  #shopping_cart{
+    width:40%;
+    display: block;
+    position: relative;
+    left: 200px;
+    background-color: white;
+
+    #order_item_holder{
+      width: 100%;
+      height: 200px;
+      display: block;
+      border: 1px solid grey;
+      padding: 30px 0px;
     }
   }
 }
