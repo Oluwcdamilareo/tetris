@@ -388,7 +388,6 @@ footer {
   #shopping_cart_holder #shopping_cart {
     width: 40%;
     display: block;
-    background-color: white;
     float: left;
     clear: both; }
     #shopping_cart_holder #shopping_cart #order_item_holder {
@@ -399,9 +398,7 @@ footer {
       padding: 30px 0px; }
   #shopping_cart_holder #checkout_aside {
     width: 30%;
-    background-color: white;
     height: 400px;
-    display: block;
     float: right;
     clear: both; }
 
