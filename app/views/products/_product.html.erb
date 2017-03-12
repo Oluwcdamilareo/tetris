@@ -9,7 +9,6 @@
               <%= f.submit "Add to Cart", class: "add_to_cart_button" %>
           <% end %>
         <%else%>
-        <h1><%=product.name%></h1>
           <div class="card">
             <div class="front" style='background-image: url(<%= product.image.store.url%>)'>
               <%= render 'product_front', product: product%>
@@ -18,5 +17,6 @@
               <%= render 'product_back', product: product%>
             </div>
           </div>
+          <p><%=product.name%><p>
       <%end%>
 </div>
