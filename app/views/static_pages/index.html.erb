@@ -16,75 +16,20 @@
 
 
   <div id="featured_items">
+  <% @products.each do |product| %>
+    <%= product.name %>
+    <div class="card">
+      <div class="front" style='background-image:url(<%=product.image.store.url%>)'>
 
-    <div class="card ">
-      <div class="front">
-        <div class="price">
-          <p>N4000</p>
-        </div>
+        <%= render 'products/featured_items_front',product: product%>
       </div>
       <div class="back">
-        <div class="links">
-          <ul>
-            <li>
-              <%=link_to 'view product', '#'%>
-            </li>
-            <li>
-              <%=link_to 'add to cart', '#'%>
-            </li>
-            <li>
-              <%=link_to 'order now', '#'%>
-            </li>
-          </ul>
-        </div>
+        <%= render 'products/featured_items_back', product: product%>
       </div>
     </div>
 
-    <div class="card ">
-      <div class="front">
-        <div class="price">
-          <p>N4000</p>
-        </div>
-      </div>
-      <div class="back">
-        <div class="links">
-          <ul>
-            <li>
-              <%=link_to 'view product', '#'%>
-            </li>
-            <li>
-              <%=link_to 'add to cart', '#'%>
-            </li>
-            <li>
-              <%=link_to 'order now', '#'%>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="card ">
-      <div class="front">
-        <div class="price">
-          <p>N4000</p>
-        </div>
-      </div>
-      <div class="back">
-        <div class="links">
-          <ul>
-            <li>
-              <%=link_to 'view product', '#'%>
-            </li>
-            <li>
-              <%=link_to 'add to cart', '#'%>
-            </li>
-            <li>
-              <%=link_to 'order now', '#'%>
-            </li>
-          </ul>
-
-        </div>
-      </div>
-    </div>
+  <%end%>
 
   </div>
+
+</div>

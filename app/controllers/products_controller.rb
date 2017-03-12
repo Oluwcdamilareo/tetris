@@ -4,13 +4,13 @@ class ProductsController < ApplicationController
     @products = Product.all
     @order_item = current_order.order_items.new
   end
-  def show
-    @product = Product.find(params[:id])
-  end
 
   def new
     @product = Product.new
+  end
 
+  def show
+    @product = Product.find(params[:id])
   end
 
   def create
@@ -20,7 +20,6 @@ class ProductsController < ApplicationController
     else
       render 'new'
     end
-
   end
 
   def edit
@@ -46,7 +45,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :price, :active)
+    params.require(:product).permit(:name, :price, :active, :featured, :image)
   end
 
 end

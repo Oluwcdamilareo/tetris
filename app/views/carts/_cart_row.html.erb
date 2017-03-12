@@ -1,14 +1,13 @@
 
 <div id="order_item_holder">
+      <%= image_tag product.image.thumb.url, id: "cart_image"%>
       <h4><%= product.name %></h4>
+
       <%= form_for order_item, remote: true do |f| %>
-
         <h4 id="order_item_price"><%= number_to_currency order_item.unit_price %></h4>
-
             <%= f.number_field :quantity, value: order_item.quantity.to_i, class: "form-control", min: 1 %>
             <%= f.hidden_field :product_id, value: product.id %>
               <%= f.submit "Update Quantity", class: "btn btn-primary" %>
-              <%= link_to "Delete", order_item, { data: { confirm: "Are you sure you wish to delete the product '#{order_item.product.name}' from your cart?" }, method: :delete, remote: true } %>
-
+              <%= link_to "Remove", order_item, { data: { confirm: "Are you sure you wish to delete the product '#{order_item.product.name}' from your cart?" }, method: :delete, remote: true } %>
       <% end %>
 </div>

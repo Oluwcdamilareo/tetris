@@ -1,11 +1,29 @@
 
-<div id="new_product_form">
-  <%= form_for @product do |f|  %>
+<div id="edit_product_form">
+  <%= form_for @product, html: {multipart: true} do |f|  %>
+      <% if @product.errors.any? %>
+     <div id="error_explanation">
+       <h2><%= pluralize(@product.errors.count, "error") %> prohibited this pet from being saved:</h2>
+
+       <ul>
+       <% @product.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+       <% end %>
+       </ul>
+     </div>
+    <% end %>
 
     <ul>
+      <% if f.object.image? %>
+      <%= image_tag f.object.image.thumb.url, style: "width:200px; height:200px;" %>
+      <%= f.label :remove_image %>
+      <%= f.check_box :remove_image %>
+    <% end %>
+      <li><%= f.file_field :image, placeholder: "Image" %></li>
       <li><%= f.text_field :name, placeholder: "Name" %></li>
       <li><%= f.number_field :price, placeholder: "Price"%></li>
       <li><%= f.check_box :active%></li>
+      <li><%= f.check_box :featured%></li>
       <li><%= f.submit "Done" %></li>
     </ul>
   <%end%>

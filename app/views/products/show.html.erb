@@ -1,1 +1,16 @@
 
+<div id="show_product">
+  <p>
+    <strong>Name:</strong>
+    <%= @product.name %>
+  </p>
+
+  <p>
+    <strong>Image:</strong>
+
+    <%= image_tag @product.image.thumb.url, style: "width:200px; height:200px;" %>
+  </p>
+
+  <%= link_to 'Edit', product_edit_path(@product) %> |
+  <%= link_to 'Back', product_path %>
+</div>
