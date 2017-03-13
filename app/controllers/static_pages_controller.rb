@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def index
-    @products = Product.where( "featured = 'true' " )
+    @products = Product.where( "featured"  )
   end
 
   def store

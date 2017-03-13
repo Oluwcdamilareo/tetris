@@ -1,7 +1,14 @@
 class CartsController < ApplicationController
-  def show
-    @order_items = current_order.order_items
-  end
+
+
+    def create
+      @order_items = current_order.order_items.new(order_item_params)
+      @order_items.save
+    end
+
+    def show
+      @order_items = current_order.order_items
+    end
 
   def update
     @order_items = current_order.order_items
@@ -15,8 +22,4 @@ class CartsController < ApplicationController
     @order_items.destroy
   end
 
-  def create
-    @order_items = current_order.order_items.new(order_item_params)
-    @order_items.save
-  end
 end

@@ -21,10 +21,11 @@ eventAdder = (el, ev, fn) ->
 flipSlide = () ->
   if window.event.srcElement.parentElement.className == 'card'
     window.event.srcElement.parentElement.className = 'card flip'
-  else
+  else if window.event.srcElement.parentElement.className == 'card flip'
     window.event.srcElement.parentElement.className = 'card'
 
 unflipSlide = () ->
-  console.log window.event
   if window.event.srcElement.parentElement.className == 'card flip'
     window.event.srcElement.parentElement.className = 'card'
+  else
+    window.event.srcElement.parentElement.className == 'card flip'
