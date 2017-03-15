@@ -115,7 +115,6 @@
   padding: 30px 50px;
   align-items: center;
   text-align: center;
-  color: white;
   text-transform: uppercase;
   padding: 200px 0px; }
   #signup_form input[type="email"], #signup_form input[type="password"], #signup_form input[type="text"] {
@@ -125,9 +124,7 @@
     font-size: 1em;
     padding: 20px 10px;
     border: 1px solid rgba(45, 41, 40, 0.5);
-    outline: none;
-    box-shadow: none;
-    color: inherit; }
+    outline: none; }
   #signup_form input[type="checkbox"], #signup_form input[type="submit"] {
     margin-top: 15px; }
   #signup_form input[type="submit"] {
@@ -167,5 +164,10 @@
   width: 100%;
   height: 400px;
   margin-bottom: 200px; }
+
+#dashboard_holder {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 400px; }
 
 /*# sourceMappingURL=static_pages.css.map */

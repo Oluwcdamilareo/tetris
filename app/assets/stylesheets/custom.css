@@ -55,6 +55,8 @@ header #header {
       display: inline;
       position: relative;
       bottom: 1px; }
+    header #header li.drop_down #admin_sub {
+      width: 200px; }
     header #header li.drop_down ul.sub-menu {
       border: 1px solid #2d2122;
       height: 250px;
