@@ -1,16 +1,21 @@
-
+<!--
 <div id="show_product">
-  <p>
-    <strong>Name:</strong>
-    <%= @product.name %>
-  </p>
 
-  <p>
-    <strong>Image:</strong>
+  <% if user_signed_in?%>
+      <%= form_for @product, remote: true do |f| %>
+          <%=image_tag @product.image.store.url, id:"store_image"%>
+          <%=@product.name%>
+          <h4>Price:<%= number_to_currency(@product.price,unit: "N")%></h4>
+          <%= f.hidden_field :product_id, value: @product.id %>
+          <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+          <%= f.submit "Add to Cart", class: "add_to_cart_button" %>
+      <% end %>
+  <%end%>
 
-    <%= image_tag @product.image.thumb.url, style: "width:200px; height:200px;" %>
-  </p>
-
-  <%= link_to 'Edit', product_edit_path(@product) %> |
-  <%= link_to 'Back', product_path %>
-</div>
+  <% if admin_signed_in?%>
+    <%= link_to 'Edit', product_edit_path(@product) %> |
+    <%= link_to 'Back', product_path %>
+  <%end%>
+  <%=number_field :quantity, value:1, min: 1%>
+  <%= link_to 'add to cart', order_items_path(@product), method: :update, quantity: :quantity %>
+</div> -->

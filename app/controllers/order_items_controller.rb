@@ -1,5 +1,9 @@
 class OrderItemsController < ApplicationController
 
+  def show
+    render 'carts/show'
+  end
+
   def create
     @order = current_order
     if @order.order_status_id.blank?

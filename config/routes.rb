@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  devise_for :admins
   get 'orders/show'
 
   get 'orders/create'
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
   get 'orders/destroy'
 
   resource :cart, only: [:show,:update,:destroy,:create]
-  resources :order_items, only: [:create, :update, :destroy]
+  resources :order_items, only: [:show,:create, :update, :destroy]
   devise_for :users
 
   root 'static_pages#index'
@@ -28,6 +29,8 @@ Rails.application.routes.draw do
 
   get '/customercare', to: 'static_pages#customer_care'
 
+  get '/account', to: 'static_pages#account'
 
+  get '/admin', to: 'admins#admin_account', as: 'addacc'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
