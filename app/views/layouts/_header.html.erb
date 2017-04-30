@@ -11,30 +11,31 @@
 
             <ul class="sub-menu">
               <li><%=link_to "Account", account_path%></li>
-              <li><%= render 'layouts/cart_text'%>
+              <li><%= render 'layouts/cart_text'%></li>
               <li><%=link_to "Sign out", destroy_user_session_path,:method => :delete%></li>
 
             </ul>
           </li>
+          <li><%=link_to "customer care", customercare_path%></li>
+          <li><%=link_to "store", store_path%></li>
+          <li><%=link_to "home", root_path%></li>
         <%elsif admin_signed_in?%>
-        <li class="drop_down">
-          <%=current_admin.email%>
+            <li class="drop_down">
+              <%=current_admin.email%>
 
-          <ul class="sub-menu" id="admin_sub">
-            <li><%=link_to "Dashboard", dashboard_path%></li>
-            <li><%=link_to "Sign out", destroy_admin_session_path,:method => :delete%></li>
+              <ul class="sub-menu">
+                <li><%=link_to "Account", dashboard_path%></li>
+                <li><%=link_to "Sign out", destroy_user_session_path,:method => :delete%></li>
 
-          </ul>
-        </li>
+              </ul>
+            </li>
         <%else%>
-        <ul>
-        <li><%=link_to "sign in", new_user_session_path %></li>
-
-        <li><%=link_to "customer care", customercare_path%></li>
-        <li><%=link_to "store", store_path%></li>
-        <li><%=link_to "home", root_path%></li>
+          <li><%=link_to "sign in/sign up", new_user_session_path %></li>
+          <li><%=link_to "customer care", customercare_path%></li>
+          <li><%=link_to "store", store_path%></li>
+          <li><%=link_to "home", root_path%></li>
+        <%end%>
       </ul>
-      <%end%>
     </div>
   </div>
 </header>

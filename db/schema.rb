@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315034019) do
+ActiveRecord::Schema.define(version: 20170430164018) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -29,6 +29,12 @@ ActiveRecord::Schema.define(version: 20170315034019) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.string   "delivery_address"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
   create_table "order_items", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "order_id"
@@ -41,20 +47,15 @@ ActiveRecord::Schema.define(version: 20170315034019) do
     t.index ["product_id"], name: "index_order_items_on_product_id"
   end
 
-  create_table "order_statuses", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "orders", force: :cascade do |t|
     t.integer  "total"
     t.integer  "subtotal"
-    t.integer  "order_status_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "delivery_address"
-    t.index ["order_status_id"], name: "index_orders_on_order_status_id"
+    t.string   "customer_name"
+    t.integer  "user_id"
+    t.integer  "status",           default: 0, null: false
   end
 
   create_table "products", force: :cascade do |t|

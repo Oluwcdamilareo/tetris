@@ -1,4 +1,5 @@
 class OrderItemsController < ApplicationController
+  before_action :authenticate_user!
 
   def show
     render 'carts/show'
@@ -6,14 +7,12 @@ class OrderItemsController < ApplicationController
 
   def create
     @order = current_order
-    if @order.order_status_id.blank?
-      @order.order_status_id=1
-    end
-      @order_item = @order.order_items.new(order_item_params)
-      @order.save
-      session[:order_id] = @order.id
+    @order.progress!
+    @order_item = @order.order_items.new(order_item_params)
+    @order.save
+    session[:order_id] = @order.id
   end
-
+  
   def update
     @order = current_order
     @order_items = @order.order_items
@@ -30,6 +29,6 @@ class OrderItemsController < ApplicationController
 
 private
   def order_item_params
-    params.require(:order_item).permit(:quantity, :product_id)
+    params.require(:order_item).permit(:quantity, :product_id,:delivery_address)
   end
 end

@@ -28,10 +28,10 @@
 <%end%>
 
 <%if current_order.subtotal > 0%>
-<div id="checkout_aside">
-       <%=render 'carts/checkout_aside'%>
-<div id="checkout_button">
-  <%= link_to "Checkout",'#'%>
-</div>
-</div>
+  <div id="checkout_aside">
+         <%=render 'carts/checkout_aside'%>
+    <div id="checkout_button">
+      <%= link_to "Checkout", checkout_path%>
+    </div>
+  </div>
 <%end%>

@@ -23,17 +23,28 @@ Rails.application.routes.draw do
   #
 
   devise_for :admins
-  
-  get 'orders/show'
 
-  get 'orders/create'
+  get '/dashboard', to: 'orders#show'
 
-  get 'orders/new'
+  get 'orders/new', to: 'orders#new'
 
-  get 'orders/destroy'
+  get 'orders/destroy', to: 'orders#destroy'
 
-  resource :cart, only: [:show,:update,:destroy,:create]
+  patch '/delivered', to: 'orders#delivered'
+
+  get '/cart', to: 'carts#show'
+
+  get '/cart', to: 'carts#create'
+
+  patch '/order_item/:id', to: 'cart#update'
+
+  delete '/order_item/:id', to: 'cart#destroy'
+
+  get '/checkout', to: 'orders#checkout'
+
+  resource :cart, only: [ :create]
   resources :order_items, only: [:show,:create, :update, :destroy]
+  resources :order_items, only: [:create]
   devise_for :users
 
   root 'static_pages#index'
@@ -53,6 +64,5 @@ Rails.application.routes.draw do
 
   get '/account', to: 'static_pages#account'
 
-  get '/dashboard', to: 'static_pages#admin_dashboard'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
