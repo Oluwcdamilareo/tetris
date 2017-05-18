@@ -9,10 +9,14 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
+
   def show
     @product = Product.find(params[:id])
-    
+    @product.order_items.each do |oi|
+      @order_item = oi
+    end
   end
+
 
   def create
     @product = Product.new(product_params)
@@ -46,7 +50,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :price, :active, :featured, :image)
+    params.require(:product).permit(:name, :price, :active, :featured,:product_id, :image)
   end
 
 end

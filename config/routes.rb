@@ -22,30 +22,15 @@ Rails.application.routes.draw do
   #
   #
 
-  devise_for :admins
 
-  get '/dashboard', to: 'orders#show'
 
-  get 'orders/new', to: 'orders#new'
 
-  get 'orders/destroy', to: 'orders#destroy'
-
-  patch '/delivered', to: 'orders#delivered'
-
-  get '/cart', to: 'carts#show'
-
-  get '/cart', to: 'carts#create'
-
-  patch '/order_item/:id', to: 'cart#update'
-
-  delete '/order_item/:id', to: 'cart#destroy'
-
-  get '/checkout', to: 'orders#checkout'
 
   resource :cart, only: [ :create]
   resources :order_items, only: [:show,:create, :update, :destroy]
   resources :order_items, only: [:create]
   devise_for :users
+  devise_for :admins
 
   root 'static_pages#index'
 
@@ -63,6 +48,26 @@ Rails.application.routes.draw do
   get '/customercare', to: 'static_pages#customer_care'
 
   get '/account', to: 'static_pages#account'
+
+  get '/dashboard', to: 'orders#show'
+
+  get 'orders/new', to: 'orders#new'
+
+  get 'orders/destroy', to: 'orders#destroy'
+
+  patch '/delivered', to: 'orders#delivered'
+
+  get '/cart', to: 'carts#show'
+
+  get '/cart', to: 'carts#create'
+
+  patch '/order_item/:id', to: 'cart#update'
+
+  delete '/order_item/:id', to: 'cart#destroy'
+
+  patch '/order_items', to: 'order_items#create'
+
+  get '/checkout', to: 'orders#checkout'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
