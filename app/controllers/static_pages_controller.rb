@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+
+  before_filter :authenticate_user!, only: [:account]
   def index
     @products = Product.where( "featured"  )
   end

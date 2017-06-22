@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_filter :authenticate_admin!, only: [:create, :new, :edit, :update, :destroy]
 
   def index
     @products = Product.all
