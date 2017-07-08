@@ -26,12 +26,10 @@
 
       <li>
         <%= f.label :active%>
-        <%= f.check_box :active%>
+
+        <%= f.select :status, Product.statuses.keys.map { |w| [w.humanize, w]}%>
       </li>
-      <li>
-        <%= f.label :featured%>
-        <%= f.check_box :featured%>
-      </li>
+
       <li><%= f.submit "Done" %></li>
     </ul>
   <%end%>

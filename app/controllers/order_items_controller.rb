@@ -1,16 +1,23 @@
 class OrderItemsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create]
+
+  layout 'header'
 
   def show
     render 'carts/show'
   end
 
   def create
-    @order = current_order
-    @order.progress!
-    @order_item = @order.order_items.new(order_item_params)
-    @order.save
-    session[:order_id] = @order.id
+    if user_signed_in?
+      @order = current_order
+      @order_item = @order.order_items.new(order_item_params)
+      @order_item.save!
+      @order.progress!
+      @order.save
+      session[:order_id] = @order.id
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def update
@@ -29,6 +36,7 @@ class OrderItemsController < ApplicationController
 
 private
   def order_item_params
-    params.require(:order_item).permit(:quantity, :product_id,:order_item)
+    params.require(:order_item).permit(:quantity, :product_id)
+
   end
 end

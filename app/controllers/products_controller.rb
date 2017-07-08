@@ -1,8 +1,11 @@
 class ProductsController < ApplicationController
-  before_filter :authenticate_admin!, only: [:create, :new, :edit, :update, :destroy]
+  before_action :authenticate_admin!, only: [:create, :new, :edit, :update, :destroy]
+
+  layout 'header'
 
   def index
-    @products = Product.all
+    @products = Product.all.search(params[:search]).paginate(page: params[:page], per_page: 8)
+    @search = params[:search]
     @order_item = current_order.order_items.new
   end
 
@@ -13,9 +16,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @product.order_items.each do |oi|
-      @order_item = oi
-    end
+    @order_item = OrderItem.new
+    @order_item.save
   end
 
 
@@ -51,7 +53,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :price, :active, :featured,:product_id, :image)
+    params.require(:product).permit(:name, :price, :active, :status,:product_id, :image)
   end
 
 end

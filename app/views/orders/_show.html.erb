@@ -1,11 +1,13 @@
-<!-- <div id="dashboard_holder"> -->
+
   <%@orders.each do |o|%>
     <div id="order_holder">
-
-      <h1>Customer name: <%= o.customer_name%></h1>
-      <p>Order Id: <%=o.id%></p>
+      <% if admin_signed_in?%>
+        <h1>Customer name: <%= o.customer_name%></h1>
+        <p>Order Id: <%=o.id%></p>
+        <p>Order has been <%= o.status.capitalize%></p>
+      <%end%>
       <h1>Placed: <%=o.created_at%></h1>
-      <p>Order has been <%= o.status.capitalize%></p>
+
 
       <% o.order_items.each do |oi|%>
       <br>
@@ -27,4 +29,3 @@
 
     </div>
   <%end%>
-<!-- </div> -->

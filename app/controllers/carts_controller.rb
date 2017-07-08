@@ -2,6 +2,8 @@ class CartsController < ApplicationController
 
 before_filter :authenticate_user!
 
+  layout 'header'
+
     def create
       @order_items = current_order.order_items.new(order_item_params)
       @order_items.save
@@ -13,7 +15,6 @@ before_filter :authenticate_user!
     end
 
   def update
-    @order_items = current_order.order_items
     @order_items = current_order.order_items.find(params[:id])
     @order_items.update_attributes(order_item_params)
   end

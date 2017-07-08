@@ -1,10 +1,23 @@
 <div id="product_holder">
 
-<% @products.each do |product| %>
-  <%= render "product", product: product, order_item: @order_item %>
-<% end %>
+<% provide(:title, "Store")%>
 
-<!-- <div id="cart_summary_aside">
 
-</div> -->
+<div>
+  <% if @products.blank?%>
+  <div class="empty_page">
+      <h1>Oh wow! nothing matches <%= @search %>, try searching for something else or go to <%=link_to("the store", store_path)%> and see what we got</h1>
+  </div>
+    <div class="product_holder">
+  <%else%>
+
+    <% @products.each do |product| %>
+      <%= render "product", product: product, order_item: @order_item %>
+    <% end %>
+    <%= will_paginate @products %>
+  <%end%>
+    </div>
+
+</div>
+
 </div>

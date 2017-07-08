@@ -1,8 +1,6 @@
 <header>
   <div id="header" class="cf">
-
-    <%= link_to image_tag('#', alt:"tetris", id: "header_logo"), root_path %>
-
+    <%= link_to image_tag('logo', alt:"tetris", id: "header_logo"), root_path %>
     <div class="nav cf">
       <ul>
         <% if user_signed_in?%>
@@ -19,6 +17,9 @@
           <li><%=link_to "customer care", customercare_path%></li>
           <li><%=link_to "store", store_path%></li>
           <li><%=link_to "home", root_path%></li>
+          <li>
+            <%=render 'search_bar'%>
+          </li>
         <%elsif admin_signed_in?%>
             <li class="drop_down">
               <%=current_admin.email%>
@@ -34,8 +35,12 @@
           <li><%=link_to "customer care", customercare_path%></li>
           <li><%=link_to "store", store_path%></li>
           <li><%=link_to "home", root_path%></li>
+          <li>
+            <%=render 'search_bar'%>
+          </li>
         <%end%>
       </ul>
     </div>
+
   </div>
 </header>

@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   resource :cart, only: [ :create]
   resources :order_items, only: [:show,:create, :update, :destroy]
   resources :order_items, only: [:create]
-  devise_for :users
+  devise_for :users, controllers: {:sessions => 'sessions/sessions'}
   devise_for :admins
 
   root 'static_pages#index'

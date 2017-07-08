@@ -7,28 +7,19 @@
 </div>
 
 <div id="featured_container">
-  <h3>featured</h3>
+  <h3>Suggested Products</h3>
 
   <p>
-    for more awesome products
+    For more awesome products
     <%=link_to "visit the store", store_path, class: "button"%>
   </p>
 
 
-  <div id="featured_items">
-  <% @products.each do |product| %>
-    <%= product.name %>
-    <div class="card">
-      <div class="front" style='background-image:url(<%=product.image.store.url%>)'>
+  <div id="product_holder">
+    <% @products.each do |product| %>
+      <%= render "products/product", product: product, order_item: @order_item %>
+    <% end %>
 
-        <%= render 'products/featured_items_front',product: product%>
-      </div>
-      <div class="back">
-        <%= render 'products/featured_items_back', product: product%>
-      </div>
-    </div>
-
-  <%end%>
 
   </div>
 

@@ -1,30 +1,18 @@
+  <div class="product_show">
+      <%= image_tag @product.image.thumb.url, id: "product_image"%>
+      <h2><%= @product.name.upcase %></h2>
+      <h4 class="text-right">Price:<%= number_to_currency( @product.price, unit: "N") %></h4>
+      <% if admin_signed_in?%>
+        <%= link_to 'Edit', product_edit_path(@product) %> |
+        <%= link_to 'Back', product_path %>
+      <%end%>
 
-
-  <div class="product_card">
-    <ul>
-      <li>
-        <div id="product_card_top">
-          <%= image_tag @product.image.thumb.url, id: "product_image"%>
-        </div>
-      </li>
-      <li>
-        <div id="product_card_bottom">
-          <h2><%= @product.name.upcase %></h2>
-          <h4 class="text-right">Price:<%= number_to_currency( @product.price, unit: "N") %></h4>
-        </div>
-      </li>
-    </ul>
-    <% if admin_signed_in?%>
-      <%= link_to 'Edit', product_edit_path(@product) %> |
-      <%= link_to 'Back', product_path %>
-    <%end%>
-    <div id = "show_controls">
-    <%= form_for @order_item, remote: true, url:{ action:"create", controller: "order_items"} do |f| %>
-    <%= f.number_field :quantity, value:1, min: 1%>
-
-        <%= f.hidden_field :price, value: @product.price %>
-        <%= f.hidden_field :product_id, value: @product.id %>
-        <%= f.submit "Add to Cart"%>
-    <%end%>
-    </div>
-  </div>
+      <div id = "show_controls">
+        <%= form_for @order_item, remote: true do |f| %>
+            <%= f.number_field :quantity, value:1, min: 1%>
+            <%= f.hidden_field :price, value: @product.price %>
+            <%= f.hidden_field :product_id, value:   @product.id %>
+            <%= f.submit "Add to Cart"%>
+        <%end%>
+      </div>
+</div>

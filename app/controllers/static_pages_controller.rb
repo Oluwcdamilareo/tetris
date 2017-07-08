@@ -1,8 +1,11 @@
 class StaticPagesController < ApplicationController
-
   before_filter :authenticate_user!, only: [:account]
+
+  layout 'header'
+
   def index
-    @products = Product.where( "featured"  )
+    @products = Product.where("status == ?", Product.statuses["featured"])[0..2]
+    @order_item = OrderItem.new
   end
 
   def store

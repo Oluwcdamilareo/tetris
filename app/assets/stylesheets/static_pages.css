@@ -18,60 +18,59 @@
       font-family: Alcubierre; }
 
 #featured_container {
-  margin-top: 5%;
-  font-family: Alcubierre;
-  color: #2d2122;
-  text-transform: uppercase; }
-  #featured_container p {
-    font-size: 1.4em;
-    display: block;
-    -webkit-margin-before: 1em;
-    -webkit-margin-after: 1em;
-    -webkit-margin-start: 0em;
-    -webkit-margin-end: 0em; }
+  margin-top: 50px; }
   #featured_container h3 {
-    font-size: 4em; }
-  #featured_container h3, #featured_container p {
-    margin-left: 30px; }
-  #featured_container a.button {
-    border: 1px solid white;
-    padding: 20px 50px;
-    line-height: 40px;
-    text-decoration: none;
-    color: #2d2122;
-    font-size: 1.3em;
-    transition: .5s;
-    border: 1px solid #2d2122; }
-    #featured_container a.button:hover {
-      color: #ffffff;
-      background-color: #2d2122;
-      border: 1px solid white;
-      cursor: pointer; }
-  #featured_container #featured_items {
-    margin: auto;
-    width: 975px;
-    height: 200px; }
+    text-transform: capitalize;
+    font-size: 3em;
+    margin: 10px 0 0 150px; }
+  #featured_container p {
+    margin: 10px 0 0 150px;
+    font-size: 1.4em; }
+    #featured_container p a {
+      border: 1px solid #2d2122;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: inherit;
+      transition: .4s; }
+      #featured_container p a:hover {
+        background-color: #2d2122;
+        color: white;
+        cursor: pointer; }
+  #featured_container #product_holder {
+    width: 100%;
+    clear: both;
+    padding: 100px 20px; }
+    #featured_container #product_holder .product {
+      width: 300px;
+      height: 300px;
+      font-size: 1.7em; }
+      #featured_container #product_holder .product p#store_product_name {
+        display: none; }
+      #featured_container #product_holder .product h4 {
+        color: #2d2122; }
+      #featured_container #product_holder .product #store_image {
+        width: 200px;
+        height: 250px; }
 
-#login_form {
+.form_page {
   width: 800px;
   margin: auto;
-  margin-top: 15%;
   margin-bottom: 100px;
-  padding: 30px 50px;
+  padding: 0px 50px;
   align-items: center;
   text-align: center;
   color: #2d2122;
   text-transform: uppercase;
   font-family: Alcubierre; }
-  #login_form input[type="email"], #login_form input[type="password"] {
+  .form_page input[type="email"], .form_page input[type="password"], .form_page input[type="text"] {
     margin-top: 20px;
     width: 80%;
     height: 40px;
     font-size: 1em;
     padding: 20px 10px; }
-  #login_form input[type="checkbox"], #login_form input[type="submit"] {
+  .form_page input[type="checkbox"], .form_page input[type="submit"] {
     margin-top: 15px; }
-  #login_form input[type="submit"] {
+  .form_page input[type="submit"] {
     border: 1px solid white;
     background-color: white;
     text-transform: uppercase;
@@ -81,13 +80,13 @@
     font-size: 1em;
     transition: .5s;
     width: 80%; }
-    #login_form input[type="submit"]:hover {
+    .form_page input[type="submit"]:hover {
       background-color: #2d2122;
       color: white;
       cursor: pointer; }
-  #login_form h2 {
+  .form_page h2 {
     text-align: center; }
-  #login_form .actions a {
+  .form_page .actions a {
     border: 1px solid #2d2122;
     background-color: white;
     text-transform: uppercase;
@@ -96,69 +95,57 @@
     font-size: 1em;
     transition: .5s;
     text-decoration: none; }
-    #login_form .actions a:hover {
+    .form_page .actions a:hover {
       background-color: #2d2122;
       color: white;
       cursor: pointer; }
-  #login_form .actions p {
+  .form_page .actions p {
     margin: 20px 0px; }
 
 #sign_up {
   width: 100%;
   height: 100%; }
 
-#signup_form {
-  font-family: Alcubierre;
-  width: 800px;
-  margin: auto;
-  margin-bottom: 100px;
-  padding: 30px 50px;
-  align-items: center;
-  text-align: center;
-  text-transform: uppercase;
-  padding: 200px 0px; }
-  #signup_form input[type="email"], #signup_form input[type="password"], #signup_form input[type="text"] {
-    margin-top: 20px;
-    width: 80%;
-    height: 40px;
-    font-size: 1em;
-    padding: 20px 10px;
-    border: 1px solid rgba(45, 41, 40, 0.5);
-    outline: none; }
-  #signup_form input[type="checkbox"], #signup_form input[type="submit"] {
-    margin-top: 15px; }
-  #signup_form input[type="submit"] {
-    border: 1px solid #2d2122;
-    background-color: white;
-    text-transform: uppercase;
-    color: #2d2122;
-    padding: 20px 60px;
-    width: 80%;
-    font-size: 1em;
-    transition: .5s; }
-    #signup_form input[type="submit"]:hover {
-      background-color: #2d2122;
-      color: white;
-      cursor: pointer; }
-  #signup_form h2 {
+#about_page_holder {
+  margin: 200px 0px;
+  padding: 0px 300px;
+  width: 100%; }
+  #about_page_holder .about {
+    width: 800px;
+    margin-bottom: 150px;
+    display: block;
+    float: left; }
+    #about_page_holder .about p {
+      width: 300px;
+      float: left;
+      clear: both;
+      display: block;
+      font-size: 1.3em; }
+    #about_page_holder .about h1 {
+      display: block;
+      float: left;
+      clear: both;
+      margin-bottom: 50px; }
+    #about_page_holder .about img {
+      width: 200px;
+      height: 200px;
+      display: block;
+      float: right; }
+  #about_page_holder #right {
+    display: block; }
+    #about_page_holder #right img {
+      float: left; }
+    #about_page_holder #right h1 {
+      display: block;
+      float: right;
+      clear: both; }
+    #about_page_holder #right p {
+      width: 300px;
+      float: right;
+      display: block;
+      clear: both; }
+  #about_page_holder h1 {
     text-align: center; }
-  #signup_form .actions a {
-    border: 1px solid white;
-    background-color: white;
-    text-transform: uppercase;
-    color: #2d2122;
-    border: 1px solid #2d2122;
-    padding: 20px 298px;
-    font-size: 1em;
-    transition: .5s;
-    text-decoration: none; }
-    #signup_form .actions a:hover {
-      background-color: #2d2122;
-      color: white;
-      cursor: pointer; }
-  #signup_form .actions p {
-    margin: 40px 0px;
-    color: #2d2122; }
 
 #account_holder {
   width: 100%;

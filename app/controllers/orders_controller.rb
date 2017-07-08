@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   before_action :authenticate_admin! unless :checkout
-
+  layout 'header'
 
   def create
 
@@ -37,6 +37,6 @@ class OrdersController < ApplicationController
 
 private
   def order_params
-    params.require(:order).permit(:customer_name, :delivery_address)
+    params.require(:order).permit(:customer_name, :delivery_address,:subtotal,:total)
   end
 end
